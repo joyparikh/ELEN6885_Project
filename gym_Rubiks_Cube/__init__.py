@@ -8,13 +8,13 @@ register(
 register(
     id='RubiksCube-v1',
     entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
-    kwargs={'optimize' = True}
+    kwargs={'optimize' : True}
 )
 
 register(
     id='RubiksCube-v2',
     entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
-    kwargs={'optimize' = True, 'ultragoal' = True}
+    kwargs={'optimize' : True, 'ultragoal' : True}
 )
 
 register(
