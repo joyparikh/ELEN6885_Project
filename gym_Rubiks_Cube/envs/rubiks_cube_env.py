@@ -27,6 +27,7 @@ class RubiksCubeEnv(gym.Env):
         self.orderNum = orderNum
         self.optimize = optimize
         self.ultragoal = ultragoal
+        self.explore = explore
         low = np.array([0 for i in range(self.orderNum*self.orderNum*6)])
         high = np.array([5 for i in range(self.orderNum*self.orderNum*6)])
         self.observation_space = spaces.Box(low, high, dtype=np.uint8) # flattened
@@ -59,7 +60,7 @@ class RubiksCubeEnv(gym.Env):
                 reward = 1.0
             done = True
         
-        if explore:
+        if self.explore:
             max_step = 100
         else:
             max_step=40
