@@ -6,15 +6,33 @@ register(
 )
 
 register(
+    id='RubiksCube-v0e',
+    entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
+    kwargs={'explore' : True}
+)
+
+register(
     id='RubiksCube-v1',
     entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
     kwargs={'optimize' : True}
 )
 
 register(
+    id='RubiksCube-v1e',
+    entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
+    kwargs={'optimize' : True, 'explore' : True}
+)
+
+register(
     id='RubiksCube-v2',
     entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
     kwargs={'optimize' : True, 'ultragoal' : True}
+)
+
+register(
+    id='RubiksCube-v2e',
+    entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
+    kwargs={'optimize' : True, 'ultragoal' : True, 'explore' : True}
 )
 
 register(
