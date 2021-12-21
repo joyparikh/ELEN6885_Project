@@ -6,7 +6,7 @@ register(
 )
 
 register(
-    id='RubiksCube-v0e',
+    id='ERubiksCube-v0',
     entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
     kwargs={'explore' : True}
 )
@@ -18,7 +18,7 @@ register(
 )
 
 register(
-    id='RubiksCube-v1e',
+    id='ERubiksCube-v1',
     entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
     kwargs={'optimize' : True, 'explore' : True}
 )
@@ -30,7 +30,7 @@ register(
 )
 
 register(
-    id='RubiksCube-v2e',
+    id='ERubiksCube-v2',
     entry_point='gym_Rubiks_Cube.envs:RubiksCubeEnv',
     kwargs={'optimize' : True, 'ultragoal' : True, 'explore' : True}
 )
