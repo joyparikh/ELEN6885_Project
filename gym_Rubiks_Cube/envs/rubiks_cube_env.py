@@ -33,6 +33,11 @@ class RubiksCubeEnv(gym.Env):
         self.observation_space = spaces.Box(low, high, dtype=np.uint8) # flattened
         self.step_count = 0
 
+        if self.explore:
+            self.step_max = 40
+        else:
+            self.step_max = 40
+
         self.scramble_low = 1
         self.scramble_high = 10
         self.doScamble = True
@@ -60,11 +65,7 @@ class RubiksCubeEnv(gym.Env):
                 reward = 1.0
             done = True
         
-        if self.explore:
-            max_step = 100
-        else:
-            max_step=40
-        if self.step_count > max_step :
+        elif self.step_count > self.step_max :
             done = True
 
         return self.state, reward, done, others
@@ -92,6 +93,9 @@ class RubiksCubeEnv(gym.Env):
         self.scramble_low = low
         self.scramble_high = high
         self.doScamble = doScamble
+    
+    def setStepMax(self, high):
+        self.step_max = high
 
     def scramble(self):
         # set the scramber number
