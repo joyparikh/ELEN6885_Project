@@ -20,7 +20,7 @@ tileDict = {
 class RubiksCubeEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, orderNum=3, optimize = False, ultragoal = False):
+    def __init__(self, orderNum=3, optimize = False, ultragoal = False, explore = False):
         # the action is 6 move x 2 direction = 12
         self.action_space = spaces.Discrete(12)
         # input is 9x6 = 54 array
@@ -58,8 +58,12 @@ class RubiksCubeEnv(gym.Env):
             else:
                 reward = 1.0
             done = True
-
-        if self.step_count > 40 :
+        
+        if explore:
+            max_step = 100
+        else:
+            max_step=40
+        if self.step_count > max_step :
             done = True
 
         return self.state, reward, done, others
